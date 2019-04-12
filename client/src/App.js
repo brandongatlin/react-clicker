@@ -1,18 +1,30 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React from 'react';
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
 import './App.css';
 
+import Form from './components/Form';
+
+
+const client = new ApolloClient({
+  uri: "http://localhost:4000/graphql",
+  onError: ({ networkError, graphQLErrors }) => {
+    console.log('graphQLErrors', graphQLErrors)
+    console.log('networkError', networkError)
+  }
+});
+
+
+
 const App = (props) => {
+console.log(props)
+    return(
+      <ApolloProvider client={client}>
+        <Form />
+      </ApolloProvider>
+            )
 
-    const [handle, setHandle] = useState(null);
-    const [text, setText] = useState(null);
-
-
-    return ( 
-        <Fragment >
-          <input type = "text"></input> 
-          <input type = "text" ></input>
-        </Fragment>
-    );
+   
 }
 
 export default App;

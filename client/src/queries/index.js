@@ -2,7 +2,7 @@ import { gql } from "apollo-boost";
 
 const addMsgMutation = gql `
   mutation($handle: String!, $text: String!) {
-    addPost(handle: $handle, text: $text) {
+    addMsg(handle: $handle, text: $text) {
       handle
       text
     }
@@ -11,9 +11,10 @@ const addMsgMutation = gql `
 
 const getMessagesQuery = gql `
   {
-    addMsg {
-      hanle
+    allMessages {
+      handle
       text
+      id
     }
   }
 `;

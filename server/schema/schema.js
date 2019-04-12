@@ -27,8 +27,8 @@ const MessageType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
     name: "RootQueryType",
     fields: {
-        message: {
-            type: MessageType,
+        allMessages: {
+            type: new GraphQLList(MessageType),
             resolve(parent, args) {
                 return Message.find();
             }
