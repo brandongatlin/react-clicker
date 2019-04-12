@@ -17,7 +17,6 @@ const client = new ApolloClient({
 
 
 const App = (props) => {
-console.log(props)
     return(
       <ApolloProvider client={client}>
         <Form />

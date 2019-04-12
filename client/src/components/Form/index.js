@@ -6,8 +6,8 @@ import ChatBox from '../ChatBox';
 
 
 const Form = (props) => {
-    const [handle, setHandle] = useState(null);
-    const [text, setText] = useState(null);
+    const [handle, setHandle] = useState("");
+    const [text, setText] = useState("");
 
     return ( 
       <Mutation mutation={addMsgMutation}>
@@ -20,7 +20,7 @@ const Form = (props) => {
               variables: {handle, text},
               refetchQueries: [{query: getMessagesQuery}]
             });
-            setText(null);
+            setText("");
           }}>
             <label>Handle
               <input type = "text" onChange={(e)=> {
@@ -29,7 +29,7 @@ const Form = (props) => {
             </label>
             <br/>
             <label>Message
-              <input type = "text" onChange={(e)=> {
+              <input type = "text" value={text} onChange={(e)=> {
                 e.preventDefault();
                 setText(e.target.value);
               }}/> 
