@@ -1,33 +1,17 @@
-import React, { useState, useEffect }from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import './App.css';
 
-const App = (props)=> {
+const App = (props) => {
 
-  const [count, setCount] = useState(0);
-  const [topPos, setTop] = useState(0);
-
-  const divStyle = {
-    margin: topPos,
-  };
+    const [handle, setHandle] = useState(null);
+    const [text, setText] = useState(null);
 
 
-  useEffect(() => {
-    document.title = `You clicked ${count} times`;
-  });
-
-  // useEffect(() => {
-  //   let div = document.getElementById('count');
-  //   div.style.marginTop = topPost + "px"
-  // });
-
-    return (
-      <div style={divStyle} className="App">
-        <p id="count">{count}</p>
-        <button onClick={()=> {
-          setCount(count + 1);
-          setTop(topPos + 100);
-        }}>Click Me</button>
-      </div>
+    return ( 
+        <Fragment >
+          <input type = "text"></input> 
+          <input type = "text" ></input>
+        </Fragment>
     );
 }
 
